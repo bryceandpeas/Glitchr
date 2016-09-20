@@ -1,0 +1,161 @@
+#N canvas 0 22 1242 756 10;
+#X obj 100 100 cnv 15 360 60 empty empty empty 20 12 0 14 -195634 -66577
+0;
+#X obj 105 105 cnv 15 350 50 empty empty empty 20 12 0 14 -54424 -66577
+0;
+#X obj 262 111 tgl 30 0 empty transport_start_toggle empty 17 7 0 10
+-1109 -260097 -262144 0 1;
+#X obj 194 111 bng 30 250 50 0 empty empty empty 17 7 0 10 -54424 -260097
+-1;
+#X obj 366 126 bng 15 250 50 0 empty empty empty 17 7 0 10 -54424 -195634
+-1;
+#X obj 408 126 bng 15 250 50 0 empty empty empty 17 7 0 10 -54424 -195634
+-1;
+#X obj 429 126 bng 15 250 50 0 empty empty empty 17 7 0 10 -54424 -195634
+-1;
+#X obj 387 126 bng 15 250 50 0 empty empty empty 17 7 0 10 -54424 -195634
+-1;
+#X obj 369 110 cnv 15 15 15 empty empty 4 2 8 0 10 -54424 -195634 0
+;
+#X obj 390 109 cnv 15 15 15 empty empty 8 2 8 0 10 -54424 -195634 0
+;
+#X obj 408 109 cnv 15 15 15 empty empty 16 2 8 0 10 -54424 -195634
+0;
+#X obj 429 109 cnv 15 15 15 empty empty 32 2 8 0 10 -54424 -195634
+0;
+#X obj 161 113 knob 25 25 40 220 0 0 empty empty empty 0 -8 0 8 -262144
+-260097 -1 1600 1;
+#X floatatom 116 109 5 0 0 0 - - -;
+#X obj 107 128 cnv 15 50 20 empty empty TEMPO 10 10 0 10 -54424 -195634
+0;
+#X obj 330 111 bng 30 250 50 0 empty empty empty 17 7 0 10 -50327 -260097
+-1;
+#X obj 195 145 cnv 5 1 1 empty empty BEAT 4 4 1 8 -50327 -195634 0
+;
+#X obj 233 144 cnv 5 1 1 empty empty << 4 4 1 8 -50327 -195634 0;
+#X obj 302 144 cnv 5 1 1 empty empty >> 4 4 1 8 -50327 -195634 0;
+#X obj 260 145 cnv 5 1 1 empty empty START 4 4 1 8 -50327 -195634 0
+;
+#X obj 328 145 cnv 5 1 1 empty empty RESET 4 4 1 8 -50327 -195634 0
+;
+#X obj 480 40 cnv 15 360 120 empty empty empty 20 12 0 14 -195634 -66577
+0;
+#X obj 765 45 cnv 15 70 30 empty empty empty 15 12 1 15 -1 -66577 0
+;
+#X obj 770 50 cnv 15 60 20 empty empty CTRL 10 11 1 15 -262144 -66577
+0;
+#N canvas 179 188 989 495 AAPtempocontrol 0;
+#X obj 190 -1395 int;
+#X obj 245 -1411 + 1;
+#X obj 190 -1442 metro 120;
+#X obj 245 -1371 mod 16;
+#X obj 285 -1261 outlet;
+#X obj 190 -1484 inlet;
+#X obj 245 -1261 outlet;
+#X obj 273 -1186 s tempocontrol;
+#X obj 278 -1393 inlet;
+#X obj 241 -1484 inlet;
+#X obj 437 -1481 inlet;
+#X obj 361 -1316 int;
+#X obj 513 -1484 inlet;
+#X obj 361 -1479 inlet;
+#X msg 361 -1388 0;
+#X obj 513 -1220 int;
+#X obj 556 -1240 + 1;
+#X obj 437 -1185 int;
+#X obj 480 -1205 - 1;
+#X obj 480 -1172 moses 0;
+#X obj 590 -1333 inlet;
+#X obj 631 -1157 inlet;
+#X obj 367 -1140 spigot;
+#X msg 513 -1292 bang;
+#X obj 367 -1218 select 15;
+#X obj 361 -1186 s barsend;
+#X connect 0 0 1 0;
+#X connect 1 0 3 0;
+#X connect 2 0 0 0;
+#X connect 3 0 4 0;
+#X connect 3 0 6 0;
+#X connect 3 0 7 0;
+#X connect 3 0 0 1;
+#X connect 3 0 24 0;
+#X connect 5 0 2 0;
+#X connect 8 0 3 1;
+#X connect 8 0 24 1;
+#X connect 9 0 2 1;
+#X connect 10 0 17 0;
+#X connect 11 0 15 1;
+#X connect 11 0 17 1;
+#X connect 11 0 25 0;
+#X connect 12 0 15 0;
+#X connect 13 0 14 0;
+#X connect 14 0 11 0;
+#X connect 14 0 3 0;
+#X connect 15 0 16 0;
+#X connect 16 0 11 0;
+#X connect 17 0 18 0;
+#X connect 18 0 19 0;
+#X connect 19 0 14 0;
+#X connect 19 1 11 0;
+#X connect 20 0 11 0;
+#X connect 21 0 22 1;
+#X connect 22 0 23 0;
+#X connect 23 0 15 0;
+#X connect 24 0 22 0;
+#X restore 630 141 pd AAPtempocontrol;
+#X msg 761 107 4;
+#X msg 788 107 8;
+#X msg 761 124 16;
+#X msg 788 124 32;
+#X obj 485 64 r tempocontrol;
+#X obj 485 94 select 2 6 10 14 18 22 26 30 34;
+#X obj -277 40 cnv 15 360 360 empty empty empty 20 12 0 14 -195634
+-66577 0;
+#X obj 9 45 cnv 15 70 30 empty empty empty 15 12 1 15 -1 -66577 0;
+#X obj 14 50 cnv 15 60 20 empty empty GUI 15 11 1 15 -262144 -66577
+0;
+#X obj -272 235 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -272 141 select 0 1;
+#X obj -272 188 == 0;
+#X obj -177 194 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -177 158 == 1;
+#X msg -272 280 \; transport_start_toggle color 117.5;
+#X msg -177 227 \; transport_start_toggle color 16;
+#X obj 296 111 bng 30 250 50 0 empty empty empty 17 7 0 10 -50327 -260097
+-1;
+#X obj 228 111 bng 30 250 50 0 empty empty empty 17 7 0 10 -50327 -260097
+-1;
+#X connect 2 0 24 0;
+#X connect 2 0 35 0;
+#X connect 4 0 25 0;
+#X connect 5 0 27 0;
+#X connect 6 0 28 0;
+#X connect 7 0 26 0;
+#X connect 12 0 13 0;
+#X connect 13 0 24 1;
+#X connect 15 0 24 3;
+#X connect 25 0 24 2;
+#X connect 26 0 24 2;
+#X connect 27 0 24 2;
+#X connect 28 0 24 2;
+#X connect 29 0 30 0;
+#X connect 30 0 3 0;
+#X connect 30 1 3 0;
+#X connect 30 2 3 0;
+#X connect 30 3 3 0;
+#X connect 30 4 3 0;
+#X connect 30 5 3 0;
+#X connect 30 6 3 0;
+#X connect 30 7 3 0;
+#X connect 30 8 3 0;
+#X connect 34 0 39 0;
+#X connect 35 0 36 0;
+#X connect 35 1 38 0;
+#X connect 36 0 34 0;
+#X connect 37 0 40 0;
+#X connect 38 0 37 0;
+#X connect 41 0 24 5;
+#X connect 42 0 24 4;
+#X coords 0 -1 1 1 360 60 1 100 100;

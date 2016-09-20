@@ -1,0 +1,64 @@
+#N canvas 0 22 450 300 10;
+#X obj 100 100 cnv 15 1200 100 empty empty empty 20 12 0 14 -195634
+-66577 0;
+#X obj 105 105 cnv 15 1190 90 empty empty empty 20 12 0 14 -54424 -66577
+0;
+#X obj 130 135 bng 30 250 50 0 empty empty empty 17 7 0 10 -50327 -260097
+-1;
+#X obj 280 135 bng 30 250 50 0 empty empty empty 17 7 0 10 -50327 -260097
+-1;
+#X msg 130 264 \; pd dsp 1;
+#X msg 280 264 \; pd dsp 0;
+#X obj 168 143 cnv 15 50 20 empty empty DSP 0 10 1 14 -54424 -195634
+0;
+#X obj 201 143 cnv 15 15 20 empty empty ON 0 10 1 14 -54424 -195634
+0;
+#X obj 318 143 cnv 15 50 20 empty empty DSP 0 10 1 14 -54424 -195634
+0;
+#X obj 351 143 cnv 15 15 20 empty empty OFF 0 10 1 14 -54424 -195634
+0;
+#X obj 1069 123 cnv 15 15 20 empty empty GLITCHR 0 10 1 50 -54424 -195634
+0;
+#X obj 1213 151 cnv 15 15 20 empty empty Version 0 10 1 14 -54424 -195634
+0;
+#X obj 1279 151 cnv 15 15 20 empty empty 1 0 10 1 14 -54424 -195634
+0;
+#X obj 430 135 bng 30 250 50 0 empty empty empty 17 7 0 10 -50327 -260097
+-1;
+#X obj 580 135 bng 30 250 50 0 empty empty empty 17 7 0 10 -50327 -260097
+-1;
+#X obj 730 135 bng 30 250 50 0 empty empty empty 17 7 0 10 -50327 -260097
+-1;
+#X obj 880 135 bng 30 250 50 0 empty empty empty 17 7 0 10 -50327 -260097
+-1;
+#X obj 470 142 cnv 15 50 20 empty empty HELP 0 10 1 14 -54424 -195634
+0;
+#X obj 510 142 cnv 15 15 20 empty empty ON 0 10 1 14 -54424 -195634
+0;
+#X obj 615 142 cnv 15 50 20 empty empty HELP 0 10 1 14 -54424 -195634
+0;
+#X obj 655 142 cnv 15 15 20 empty empty OFF 0 10 1 14 -54424 -195634
+0;
+#X obj 764 132 cnv 15 50 20 empty empty KEY 0 10 1 14 -54424 -195634
+0;
+#X obj 765 150 cnv 15 15 20 empty empty ON 0 10 1 14 -54424 -195634
+0;
+#X obj 798 132 cnv 15 50 20 empty empty CONTROL 0 10 1 14 -54424 -195634
+0;
+#X obj 915 131 cnv 15 50 20 empty empty KEY 0 10 1 14 -54424 -195634
+0;
+#X obj 916 149 cnv 15 15 20 empty empty OFF 0 10 1 14 -54424 -195634
+0;
+#X obj 949 131 cnv 15 50 20 empty empty CONTROL 0 10 1 14 -54424 -195634
+0;
+#X obj 430 277 s help_on_send;
+#X obj 580 277 s help_off_send;
+#X obj 730 277 s key_control_on_send;
+#X obj 880 277 s key_control_off_send;
+#X connect 2 0 4 0;
+#X connect 3 0 5 0;
+#X connect 13 0 27 0;
+#X connect 14 0 28 0;
+#X connect 15 0 29 0;
+#X connect 16 0 30 0;
+#X coords 0 -1 1 1 1200 100 2 100 100;
