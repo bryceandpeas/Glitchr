@@ -1,0 +1,10 @@
+#N canvas 0 22 450 300 10;
+#X obj 100 100 cnv 15 240 360 empty empty empty 20 12 0 14 -195634
+-66577 0;
+#X obj 105 105 cnv 15 230 350 empty empty empty 20 12 0 14 -54424 -66577
+0;
+#X obj 155 110 cnv 15 120 30 empty empty empty 32 11 1 14 -195634 -195634
+0;
+#X obj 158 113 cnv 15 114 24 empty empty PATCH 35 13 1 14 -54424 -195634
+0;
+#X coords 0 -1 1 1 240 360 2 100 100;

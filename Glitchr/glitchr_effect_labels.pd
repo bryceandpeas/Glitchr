@@ -1,0 +1,20 @@
+#N canvas 0 22 450 300 10;
+#X obj 100 100 cnv 15 960 30 empty empty empty 20 12 0 14 -195634 -66577
+0;
+#X obj 105 105 cnv 15 110 20 empty empty DELAY 32 11 1 14 -54424 -195634
+0;
+#X obj 224 105 cnv 15 110 20 empty empty REVERB 25 11 1 14 -54424 -195634
+0;
+#X obj 344 105 cnv 15 110 20 empty empty DISTORT 27 11 1 14 -54424
+-195634 0;
+#X obj 465 105 cnv 15 110 20 empty empty CRUSH 30 11 1 14 -54424 -195634
+0;
+#X obj 585 105 cnv 15 110 20 empty empty GATE 37 11 1 14 -54424 -195634
+0;
+#X obj 705 105 cnv 15 110 20 empty empty FIDDLE 30 11 1 14 -54424 -195634
+0;
+#X obj 826 105 cnv 15 110 20 empty empty MODULATE 17 11 1 14 -54424
+-195634 0;
+#X obj 945 105 cnv 15 110 20 empty empty LOOP 37 11 1 14 -54424 -195634
+0;
+#X coords 0 -1 1 1 960 30 2 100 100;

@@ -1,0 +1,6 @@
+#N canvas 0 22 450 300 10;
+#X obj 100 100 cnv 15 1200 30 empty empty empty 20 12 0 14 -195634
+-66577 0;
+#X obj 104 105 cnv 15 1190 20 empty empty Option_B:_Advanced_Sound_Design_Project_(AAPPB)_Bryce_Moore_17540_ABHE0116
+425 10 1 11 -54424 -191473 0;
+#X coords 0 -1 1 1 1200 30 2 100 100;

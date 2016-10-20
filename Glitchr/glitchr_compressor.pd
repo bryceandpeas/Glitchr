@@ -1,0 +1,200 @@
+#N canvas 17 23 1207 738 10;
+#X obj -306 59 cnv 15 400 450 empty empty empty 20 12 0 14 -195634
+-66577 0;
+#X obj 20 65 cnv 15 70 30 empty empty empty 15 12 1 15 -1 -66577 0
+;
+#X obj 25 70 cnv 15 60 20 empty empty GUI 15 11 1 15 -262144 -66577
+0;
+#X obj 346 65 cnv 15 550 500 empty empty empty 20 12 0 14 -195634 -66577
+0;
+#X obj 631 70 cnv 15 70 30 empty empty empty 15 12 1 15 -1 -66577 0
+;
+#X obj 636 75 cnv 15 60 20 empty empty AUDIO 7 11 1 15 -262144 -66577
+0;
+#X obj 100 100 cnv 15 240 360 empty empty empty 20 12 0 14 -195634
+-66577 0;
+#X obj 105 105 cnv 15 230 350 empty empty empty 20 12 0 14 -54424 -66577
+0;
+#X obj 366 459 *~;
+#X obj 163 315 knob 32 32 0 -2 0 0 empty empty empty 0 -8 0 8 -262144
+-1 -1 0 1;
+#X obj 237 315 knob 32 32 0 2 0 0 empty empty empty 0 -8 0 8 -262144
+-1 -1 0 1;
+#X obj 366 498 *~;
+#X obj 406 481 line~;
+#X obj 406 457 pack f 5;
+#X obj 477 364 == 0;
+#X obj 477 342 t f f;
+#X obj 131 385 knob 32 32 0 40 0 0 empty empty empty 0 -8 0 8 -262144
+-1 -1 0 1;
+#X obj 202 384 knob 32 32 0 1 0 0 empty empty empty 0 -8 0 8 -262144
+-1 -1 0 1;
+#X obj 277 384 knob 32 32 0 1 0 0 empty empty empty 0 -8 0 8 -262144
+-1 -1 0 1;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array glitchr_compressor_array 100 float 1;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0;
+#X coords 0 1 99 -1 180 60 1 0 0;
+#X restore 130 165 graph;
+#X obj 160 110 cnv 15 120 30 empty empty empty 32 11 1 14 -195634 -195634
+0;
+#X obj 163 113 cnv 15 114 24 empty empty COMPRESSOR 7 13 1 14 -54424
+-195634 0;
+#X obj 201 241 vradio 25 1 0 2 empty empty empty 0 -8 0 10 -54424 -260097
+-1 0;
+#X obj 358 291 select 0 1;
+#X obj 232 270 cnv 15 20 20 empty empty PEAK 5 10 1 10 -54424 -195634
+0;
+#X obj 232 245 cnv 15 20 10 empty empty RMS 5 10 1 10 -54424 -195634
+0;
+#X obj 141 354 cnv 15 20 10 empty empty THRESHOLD 5 10 1 10 -54424
+-195634 0;
+#X obj 233 354 cnv 15 20 10 empty empty RATIO 5 10 1 10 -54424 -195634
+0;
+#X obj 116 424 cnv 15 20 10 empty empty RESPONSE 5 10 1 10 -54424 -195634
+0;
+#X obj 202 424 cnv 15 20 10 empty empty GAIN 5 10 1 10 -54424 -195634
+0;
+#X obj 257 424 cnv 15 20 10 empty empty LOOKAHEAD 5 10 1 10 -54424
+-195634 0;
+#X msg 358 325 0;
+#X msg 386 325 1;
+#X obj 538 133 r~ master_to_compressor_right;
+#X obj 366 132 r~ master_to_compressor_left;
+#X obj 366 533 s~ compressor_out_left;
+#X obj 507 532 s~ compressor_out_right;
+#X obj -121 150 env~;
+#X floatatom -121 197 5 0 0 0 - - -;
+#X obj -121 321 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -121 261 /;
+#X obj -283 328 *~;
+#X obj -283 353 /~ 15;
+#X obj -121 370 tabwrite~ glitchr_compressor_array;
+#X obj -283 261 r~ compressor_out_left;
+#X obj -268 293 r~ compressor_out_right;
+#N canvas 211 206 736 482 glitchr_compressor_rms 0;
+#X obj 212 66 inlet~;
+#X obj 212 314 outlet~;
+#X obj 212 100 env~ 512;
+#X obj 212 141 dbtorms~;
+#X obj 212 179 -~;
+#X obj 303 142 inlet;
+#X obj 212 225 /~;
+#X obj 349 172 inlet;
+#X obj 212 272 +~;
+#X obj 369 249 inlet;
+#X obj 423 57 inlet;
+#X obj 423 87 switch~;
+#X connect 0 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 6 0;
+#X connect 5 0 4 1;
+#X connect 6 0 8 0;
+#X connect 7 0 6 1;
+#X connect 8 0 1 0;
+#X connect 9 0 8 1;
+#X connect 10 0 11 0;
+#X restore 366 392 pd glitchr_compressor_rms;
+#N canvas 695 326 450 300 glitchr_compressor_peak 0;
+#X obj 84 21 inlet~;
+#X obj 84 244 outlet~;
+#X obj 84 64 abs~;
+#X obj 84 105 -~;
+#X obj 175 68 inlet;
+#X obj 84 151 /~;
+#X obj 221 98 inlet;
+#X obj 84 198 +~;
+#X obj 241 175 inlet;
+#X obj 333 14 inlet;
+#X obj 333 44 switch~;
+#X connect 0 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 5 0;
+#X connect 4 0 3 1;
+#X connect 5 0 7 0;
+#X connect 6 0 5 1;
+#X connect 7 0 1 0;
+#X connect 8 0 7 1;
+#X connect 9 0 10 0;
+#X restore 538 392 pd glitchr_compressor_peak;
+#N canvas 430 246 450 300 glitchr_clip_response 0;
+#X obj 138 98 clip~ 0 1;
+#X obj 138 60 inlet~;
+#X obj 138 170 outlet~;
+#X obj 251 77 inlet;
+#X obj 138 138 lop~;
+#X connect 0 0 4 0;
+#X connect 1 0 0 0;
+#X connect 3 0 4 1;
+#X connect 4 0 2 0;
+#X restore 538 442 pd glitchr_clip_response;
+#N canvas 67 91 450 300 glitchr_compressor_lookahead 0;
+#X obj 176 143 inlet;
+#X obj 11 223 outlet~;
+#X obj 11 23 inlet~;
+#N canvas 525 92 450 300 glitchr_lookahead_delwrite 0;
+#X obj 11 66 delwrite~ compressor 500;
+#X obj 11 29 inlet~;
+#X obj 13 122 outlet;
+#X connect 1 0 0 0;
+#X restore 11 67 pd glitchr_lookahead_delwrite;
+#N canvas 358 434 450 300 glitchr_lookahead_delread 0;
+#X obj 10 175 delread~ compressor 0;
+#X obj 12 52 inlet;
+#X obj 57 52 inlet;
+#X obj 10 210 outlet~;
+#X connect 0 0 3 0;
+#X connect 2 0 0 0;
+#X restore 11 173 pd glitchr_lookahead_delread;
+#X connect 0 0 4 1;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 1 0;
+#X restore 366 423 pd glitchr_compressor_lookahead;
+#X obj -85 244 r glitchr_tempo_control;
+#X connect 8 0 11 0;
+#X connect 9 0 46 1;
+#X connect 9 0 47 1;
+#X connect 10 0 46 2;
+#X connect 10 0 47 2;
+#X connect 11 0 35 0;
+#X connect 11 0 36 0;
+#X connect 12 0 11 1;
+#X connect 13 0 12 0;
+#X connect 14 0 46 4;
+#X connect 15 0 14 0;
+#X connect 15 1 47 4;
+#X connect 16 0 48 1;
+#X connect 17 0 13 0;
+#X connect 18 0 49 1;
+#X connect 22 0 23 0;
+#X connect 23 0 31 0;
+#X connect 23 1 32 0;
+#X connect 31 0 15 0;
+#X connect 32 0 15 0;
+#X connect 33 0 46 0;
+#X connect 33 0 47 0;
+#X connect 33 0 49 0;
+#X connect 34 0 46 0;
+#X connect 34 0 47 0;
+#X connect 34 0 49 0;
+#X connect 34 0 37 0;
+#X connect 37 0 38 0;
+#X connect 38 0 40 0;
+#X connect 39 0 43 0;
+#X connect 40 0 39 0;
+#X connect 41 0 42 0;
+#X connect 42 0 43 0;
+#X connect 44 0 41 0;
+#X connect 45 0 41 1;
+#X connect 46 0 48 0;
+#X connect 47 0 48 0;
+#X connect 48 0 8 1;
+#X connect 49 0 8 0;
+#X connect 50 0 40 1;
+#X coords 0 -1 1 1 240 360 2 100 100;

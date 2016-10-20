@@ -1,0 +1,155 @@
+#N canvas 0 22 1211 756 10;
+#X obj 100 100 cnv 15 360 300 empty empty empty 20 12 0 14 -195634
+-66577 0;
+#X obj 105 105 cnv 15 350 290 empty empty empty 20 12 0 14 -54424 -66577
+0;
+#X obj 220 110 cnv 15 120 30 empty empty empty 32 11 1 14 -195634 -195634
+0;
+#X obj 223 113 cnv 15 114 24 empty empty FILTER 35 13 1 14 -54424 -195634
+0;
+#X obj 465 50 cnv 15 550 500 empty empty empty 20 12 0 14 -195634 -66577
+0;
+#X obj 750 55 cnv 15 70 30 empty empty empty 15 12 1 15 -1 -66577 0
+;
+#X obj 755 60 cnv 15 60 20 empty empty AUDIO 7 11 1 15 -262144 -66577
+0;
+#X obj -267 50 cnv 15 360 450 empty empty empty 20 12 0 14 -195634
+-66577 0;
+#X obj 19 55 cnv 15 70 30 empty empty empty 15 12 1 15 -1 -66577 0
+;
+#X obj 24 60 cnv 15 60 20 empty empty GUI 15 11 1 15 -262144 -66577
+0;
+#X obj 190 273 knob 30 30 0 150 0 0 empty empty empty 0 -8 0 8 -262144
+-1 -54424 0 1;
+#X obj 331 273 knob 30 30 3000 10000 0 0 empty empty empty 0 -8 0 8
+-262144 -1 -1 0 1;
+#X obj 331 346 knob 30 30 0 1 0 0 empty empty empty 0 -8 0 8 -262144
+-1 -1 0 1;
+#X obj 258 273 knob 30 30 150 3000 0 0 empty empty empty 0 -8 0 8 -262144
+-1 -1 0 1;
+#X obj 258 346 knob 30 30 0 1 0 0 empty empty empty 0 -8 0 8 -262144
+-1 -1 0 1;
+#X obj 190 346 knob 30 30 150 3000 0 0 empty empty empty 0 -8 0 8 -262144
+-1 -1 0 1;
+#X obj 189 246 cnv 15 25 20 empty empty LOW 5 10 1 10 -54424 -195634
+0;
+#X obj 259 230 cnv 15 25 20 empty empty MID 5 10 1 10 -54424 -195634
+0;
+#X obj 397 246 cnv 15 25 20 empty empty HIGH 5 10 1 10 -54424 -195634
+0;
+#X obj -101 176 env~;
+#X floatatom -101 223 5 0 0 0 - - -;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array glitchr_filter_array 100 float 1;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0;
+#X coords 0 1 99 -1 300 60 2 0 0;
+#X restore 130 164 graph;
+#X obj -101 347 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -101 287 /;
+#X obj 488 159 r~ master_to_filter_left;
+#X obj 639 159 r~ master_to_filter_right;
+#X obj -101 396 tabwrite~ glitchr_filter_array;
+#N canvas 406 146 698 476 glitchr_filter_parts 0;
+#X obj 40 20 inlet~;
+#X obj 83 20 inlet;
+#X obj 120 20 inlet;
+#X obj 40 100 bp~;
+#X obj 40 171 outlet~;
+#X connect 0 0 3 0;
+#X connect 1 0 3 1;
+#X connect 2 0 3 2;
+#X connect 3 0 4 0;
+#X restore 639 306 pd glitchr_filter_parts;
+#N canvas 406 146 698 476 glitchr_filter_parts 0;
+#X obj 40 20 inlet~;
+#X obj 83 20 inlet;
+#X obj 120 20 inlet;
+#X obj 40 100 bp~;
+#X obj 40 171 outlet~;
+#X connect 0 0 3 0;
+#X connect 1 0 3 1;
+#X connect 2 0 3 2;
+#X connect 3 0 4 0;
+#X restore 639 351 pd glitchr_filter_parts;
+#X obj 399 273 knob 30 30 10000 20000 0 0 empty empty empty 0 -8 0
+8 -262144 -1 -1 0 1;
+#X obj 399 346 knob 30 30 0 1 0 0 empty empty empty 0 -8 0 8 -262144
+-1 -1 0 1;
+#N canvas 406 146 698 476 glitchr_filter_parts 0;
+#X obj 40 20 inlet~;
+#X obj 83 20 inlet;
+#X obj 120 20 inlet;
+#X obj 40 100 bp~;
+#X obj 40 171 outlet~;
+#X connect 0 0 3 0;
+#X connect 1 0 3 1;
+#X connect 2 0 3 2;
+#X connect 3 0 4 0;
+#X restore 639 379 pd glitchr_filter_parts;
+#N canvas 406 146 698 476 glitchr_filter_parts 0;
+#X obj 40 20 inlet~;
+#X obj 83 20 inlet;
+#X obj 120 20 inlet;
+#X obj 40 100 bp~;
+#X obj 40 171 outlet~;
+#X connect 0 0 3 0;
+#X connect 1 0 3 1;
+#X connect 2 0 3 2;
+#X connect 3 0 4 0;
+#X restore 639 427 pd glitchr_filter_parts;
+#X obj 862 323 s~ filter_out_left;
+#X obj -263 287 r~ filter_out_left;
+#X obj -248 319 r~ filter_out_right;
+#X obj -263 348 *~;
+#X obj 860 378 s~ filter_out_right;
+#X obj 257 246 cnv 15 25 20 empty empty LOW 5 10 1 10 -54424 -195634
+0;
+#X obj 332 230 cnv 15 25 20 empty empty MID 5 10 1 10 -54424 -195634
+0;
+#X obj 329 246 cnv 15 25 20 empty empty HIGH 5 10 1 10 -54424 -195634
+0;
+#X obj 110 282 cnv 15 25 20 empty empty FREQUENCY 5 10 1 10 -54424
+-195634 0;
+#X obj 140 355 cnv 15 25 20 empty empty Q 5 10 1 10 -54424 -195634
+0;
+#X obj -263 379 /~ 15;
+#X obj -65 270 r glitchr_tempo_control;
+#X connect 10 0 27 1;
+#X connect 11 0 31 1;
+#X connect 12 0 31 2;
+#X connect 13 0 28 1;
+#X connect 14 0 28 2;
+#X connect 15 0 27 2;
+#X connect 19 0 20 0;
+#X connect 20 0 23 0;
+#X connect 22 0 26 0;
+#X connect 23 0 22 0;
+#X connect 24 0 19 0;
+#X connect 24 0 27 0;
+#X connect 24 0 28 0;
+#X connect 24 0 31 0;
+#X connect 24 0 32 0;
+#X connect 25 0 27 0;
+#X connect 25 0 28 0;
+#X connect 25 0 31 0;
+#X connect 25 0 32 0;
+#X connect 27 0 33 0;
+#X connect 27 0 37 0;
+#X connect 28 0 33 0;
+#X connect 28 0 37 0;
+#X connect 29 0 32 1;
+#X connect 30 0 32 2;
+#X connect 31 0 33 0;
+#X connect 31 0 37 0;
+#X connect 32 0 33 0;
+#X connect 32 0 37 0;
+#X connect 34 0 36 0;
+#X connect 35 0 36 1;
+#X connect 36 0 43 0;
+#X connect 43 0 26 0;
+#X connect 44 0 23 1;
+#X coords 0 -1 1 1 360 300 2 100 100;

@@ -1,0 +1,144 @@
+#N canvas 0 22 1276 756 10;
+#X obj 100 100 cnv 15 120 300 empty empty empty 20 12 0 14 -195634
+-66577 0;
+#X obj 105 105 cnv 15 110 290 empty empty empty 20 12 0 14 -54424 -66577
+0;
+#X obj 123 226 knob 32 32 0 1 0 0 empty distort_knob_one empty 0 -8
+0 8 -260097 -1 -1 2300 1;
+#X obj 152 129 cnv 15 15 15 empty empty CLIP 3 8 1 10 -54424 -195634
+0;
+#X obj 125 125 vradio 25 1 0 2 empty empty empty 0 -8 0 10 -195634
+-260097 -1 0;
+#X obj 153 154 cnv 15 15 15 empty empty TAN 3 8 1 10 -54424 -195634
+0;
+#X obj 123 279 knob 32 32 0 1 0 0 empty distort_knob_two empty 0 -8
+0 8 -260097 -1 -1 0 1;
+#X obj 161 230 cnv 15 15 15 empty distort_knob_label_one Amplify 3
+8 1 10 -54424 -195634 0;
+#X obj 162 288 cnv 15 15 15 empty distort_knob_label_two Clip 3 8 1
+10 -54424 -195634 0;
+#X obj 231 100 cnv 15 750 575 empty empty empty 20 12 0 14 -195634
+-66577 0;
+#X obj 237 105 cnv 15 70 30 empty empty empty 15 12 1 15 -1 -66577
+0;
+#X obj 242 110 cnv 15 60 20 empty empty GUI 15 11 1 15 -262144 -66577
+0;
+#X obj 246 547 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 246 474 == 0;
+#X obj 274 371 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 274 335 == 1;
+#X obj -211 100 cnv 15 300 550 empty empty empty 20 12 0 14 -195634
+-66577 0;
+#X obj 14 105 cnv 15 70 30 empty empty empty 15 12 1 15 -1 -66577 0
+;
+#X obj 19 110 cnv 15 60 20 empty empty CTRL 10 11 1 15 -262144 -66577
+0;
+#X obj -205 330 *~;
+#X obj -182 330 *~;
+#X obj -133 192 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+1 1;
+#X obj -118 192 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+0 1;
+#X obj -205 531 *~;
+#X obj -182 531 *~;
+#X obj -205 105 r~ glitchr_dry_signal;
+#X obj -11 207 spigot;
+#X obj 39 207 spigot;
+#X obj -11 234 spigot;
+#X obj 39 234 spigot;
+#X obj -11 175 select 0 1;
+#X obj 246 175 select 0 1;
+#X obj -205 578 s~ glitchr_distortion_send;
+#X msg 474 566 \; distort_knob_label_two label Clip;
+#X msg 474 596 \; distort_knob_two range 0 1;
+#X msg 246 566 \; distort_knob_label_one label Amplify;
+#X msg 246 596 \; distort_knob_one range 0 1;
+#X msg 274 434 \; distort_knob_one range 0 1;
+#X msg 466 434 \; distort_knob_two range 0 1;
+#N canvas 613 108 450 300 glitchr_standard_distort 0;
+#X obj 49 64 inlet~;
+#X obj 163 97 inlet;
+#X obj 49 205 outlet~;
+#X obj 49 107 *~ 40;
+#X obj 49 151 clip~ -0.5 0.5;
+#X obj 225 134 inlet;
+#X obj 97 90 inlet;
+#X connect 0 0 3 0;
+#X connect 1 0 4 1;
+#X connect 3 0 4 0;
+#X connect 4 0 2 0;
+#X connect 5 0 4 2;
+#X connect 6 0 3 1;
+#X restore -205 437 pd glitchr_standard_distort;
+#N canvas 613 108 450 300 glitchr_other_distort 0;
+#X obj 49 64 inlet~;
+#X obj 49 205 outlet~;
+#X obj 89 64 inlet;
+#X obj 49 151 tanh~ -0.5 0.5;
+#X obj 49 107 *~ 100;
+#X obj 89 92 * 100;
+#X connect 0 0 4 0;
+#X connect 2 0 5 0;
+#X connect 3 0 1 0;
+#X connect 4 0 3 0;
+#X connect 5 0 4 1;
+#X restore -182 370 pd glitchr_other_distort;
+#X msg 274 404 \; distort_knob_label_one label Amplify;
+#X msg 502 403 \; distort_knob_label_two label N/A;
+#X obj -34 553 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+0.02;
+#X obj 4 474 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj -34 523 line;
+#X msg -34 489 1;
+#X msg 41 489 0 1000;
+#X obj 4 446 r glitchr_distort_select_sender;
+#X connect 2 0 39 1;
+#X connect 2 0 40 1;
+#X connect 4 0 30 0;
+#X connect 4 0 31 0;
+#X connect 6 0 39 2;
+#X connect 12 0 35 0;
+#X connect 12 0 33 0;
+#X connect 12 0 36 0;
+#X connect 12 0 34 0;
+#X connect 13 0 12 0;
+#X connect 14 0 41 0;
+#X connect 14 0 42 0;
+#X connect 14 0 37 0;
+#X connect 14 0 38 0;
+#X connect 15 0 14 0;
+#X connect 19 0 39 0;
+#X connect 20 0 40 0;
+#X connect 21 0 19 1;
+#X connect 21 0 28 1;
+#X connect 22 0 20 1;
+#X connect 22 0 26 1;
+#X connect 23 0 32 0;
+#X connect 24 0 32 0;
+#X connect 25 0 19 0;
+#X connect 25 0 20 0;
+#X connect 26 0 22 0;
+#X connect 28 0 21 0;
+#X connect 30 0 26 0;
+#X connect 30 0 21 0;
+#X connect 30 0 27 0;
+#X connect 30 1 22 0;
+#X connect 30 1 28 0;
+#X connect 30 1 29 0;
+#X connect 31 0 13 0;
+#X connect 31 1 15 0;
+#X connect 39 0 23 0;
+#X connect 40 0 24 0;
+#X connect 42 0 38 0;
+#X connect 43 0 24 1;
+#X connect 43 0 23 1;
+#X connect 44 0 46 0;
+#X connect 44 0 47 0;
+#X connect 45 0 43 0;
+#X connect 46 0 45 0;
+#X connect 47 0 45 0;
+#X connect 48 0 44 0;
+#X coords 0 -1 1 1 120 300 2 100 100;

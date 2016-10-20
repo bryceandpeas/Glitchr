@@ -1,0 +1,187 @@
+#N canvas 0 22 1212 756 10;
+#X obj 100 100 cnv 15 120 300 empty empty empty 20 12 0 14 -195634
+-66577 0;
+#X obj 105 105 cnv 15 110 290 empty empty empty 20 12 0 14 -54424 -66577
+0;
+#X obj 123 226 knob 32 32 32 0 0 0 empty crush_knob_one empty 0 -8
+0 8 -260097 -1 -1 1900 1;
+#X obj 152 129 cnv 15 15 15 empty empty STANDARD 3 8 1 10 -54424 -195634
+0;
+#X obj 125 125 vradio 25 1 0 2 empty empty empty 0 -8 0 10 -195634
+-260097 -1 1;
+#X obj 153 154 cnv 15 15 15 empty empty PHASOR 3 8 1 10 -54424 -195634
+0;
+#X obj 123 279 knob 32 32 0 44100 0 0 empty crush_knob_two empty 0
+-8 0 8 -260097 -1 -1 1800 1;
+#X obj 161 230 cnv 15 15 15 empty crush_knob_label_one Amount 3 8 1
+10 -54424 -195634 0;
+#X obj 162 288 cnv 15 15 15 empty crush_knob_label_two Phasor 3 8 1
+10 -54424 -195634 0;
+#X obj 231 100 cnv 15 750 575 empty empty empty 20 12 0 14 -195634
+-66577 0;
+#X obj 237 105 cnv 15 70 30 empty empty empty 15 12 1 15 -1 -66577
+0;
+#X obj 242 110 cnv 15 60 20 empty empty GUI 15 11 1 15 -262144 -66577
+0;
+#X obj 246 522 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 246 475 == 0;
+#X obj 274 372 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -211 100 cnv 15 300 550 empty empty empty 20 12 0 14 -195634
+-66577 0;
+#X obj 14 105 cnv 15 70 30 empty empty empty 15 12 1 15 -1 -66577 0
+;
+#X obj 19 110 cnv 15 60 20 empty empty CTRL 10 11 1 15 -262144 -66577
+0;
+#X obj -205 330 *~;
+#X obj -182 330 *~;
+#X obj -133 192 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+0 1;
+#X obj -118 192 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+1 1;
+#X obj -205 531 *~;
+#X obj -182 531 *~;
+#X obj -206 105 r~ glitchr_dry_signal;
+#X obj -11 207 spigot;
+#X obj 39 207 spigot;
+#X obj -11 234 spigot;
+#X obj 39 234 spigot;
+#X obj -205 578 s~ glitchr_bitcrush_send;
+#X msg 458 567 \; crush_knob_label_two label N/A;
+#X msg 458 597 \; crush_knob_two range 0 1;
+#X msg 274 406 \; crush_knob_label_one label Amount;
+#N canvas 408 350 450 300 glitchr_standard_crush 0;
+#X obj 136 28 inlet~;
+#X obj 157 45 inlet;
+#X obj 136 79 *~ 8;
+#X obj 136 172 -~;
+#X obj 136 222 /~ 8;
+#X obj 136 255 outlet~;
+#X obj 197 96 wrap~;
+#X obj 284 62 select 0 1 2 4 8 16 32;
+#X connect 0 0 2 0;
+#X connect 1 0 4 1;
+#X connect 1 0 7 0;
+#X connect 2 0 3 0;
+#X connect 2 0 6 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 6 0 3 1;
+#X connect 7 0 2 1;
+#X connect 7 0 4 1;
+#X connect 7 1 2 1;
+#X connect 7 1 4 1;
+#X connect 7 2 2 1;
+#X connect 7 2 4 1;
+#X connect 7 3 2 1;
+#X connect 7 3 4 1;
+#X connect 7 4 2 1;
+#X connect 7 4 4 1;
+#X connect 7 5 2 1;
+#X connect 7 5 4 1;
+#X connect 7 6 2 1;
+#X connect 7 6 4 1;
+#X restore -205 426 pd glitchr_standard_crush;
+#X msg 246 567 \; crush_knob_label_one label Amound;
+#N canvas 704 52 585 528 glitchr_phasor_crush 0;
+#X obj 50 36 inlet~;
+#X obj 324 32 inlet;
+#X obj 106 139 *~ 8;
+#X obj 106 209 -~;
+#X obj 106 259 /~ 8;
+#X obj 176 293 outlet~;
+#X obj 170 156 wrap~;
+#X obj 169 10 inlet;
+#X obj 51 276 *~;
+#X obj 324 122 select 0 1 2 4 8 16 32;
+#X obj 169 39 * 100;
+#X obj 106 76 phasor~ 100;
+#X connect 0 0 8 0;
+#X connect 1 0 4 1;
+#X connect 1 0 9 0;
+#X connect 2 0 3 0;
+#X connect 2 0 6 0;
+#X connect 3 0 4 0;
+#X connect 4 0 8 1;
+#X connect 6 0 3 1;
+#X connect 7 0 10 0;
+#X connect 8 0 5 0;
+#X connect 9 0 2 1;
+#X connect 9 0 4 1;
+#X connect 9 1 2 1;
+#X connect 9 1 4 1;
+#X connect 9 2 2 1;
+#X connect 9 2 4 1;
+#X connect 9 3 2 1;
+#X connect 9 3 4 1;
+#X connect 9 4 2 1;
+#X connect 9 4 4 1;
+#X connect 9 5 2 1;
+#X connect 9 5 4 1;
+#X connect 9 6 4 1;
+#X connect 9 6 2 1;
+#X connect 10 0 11 1;
+#X connect 11 0 2 0;
+#X restore -182 387 pd glitchr_phasor_crush;
+#X obj 274 337 == 1;
+#X msg 485 405 \; crush_knob_label_two label Phasor AMT;
+#X msg 485 436 \; crush_knob_two range 0 44100;
+#X msg 274 436 \; crush_knob_one range 32 0;
+#X msg 246 597 \; crush_knob_one range 32 0;
+#X obj 246 175 select 0 1;
+#X obj -11 175 select 0 1;
+#X obj -31 564 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0.3
+0.3;
+#X obj 7 485 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj -31 534 line;
+#X msg -31 500 1;
+#X msg 44 500 0 1000;
+#X obj 7 457 r glitchr_bitcrush_select_sender;
+#X connect 2 0 33 1;
+#X connect 2 0 35 2;
+#X connect 4 0 41 0;
+#X connect 4 0 42 0;
+#X connect 6 0 35 1;
+#X connect 12 0 30 0;
+#X connect 12 0 40 0;
+#X connect 12 0 31 0;
+#X connect 13 0 12 0;
+#X connect 14 0 32 0;
+#X connect 14 0 37 0;
+#X connect 14 0 39 0;
+#X connect 14 0 38 0;
+#X connect 18 0 33 0;
+#X connect 19 0 35 0;
+#X connect 20 0 18 1;
+#X connect 20 0 27 1;
+#X connect 21 0 19 1;
+#X connect 21 0 25 1;
+#X connect 22 0 29 0;
+#X connect 23 0 29 0;
+#X connect 24 0 18 0;
+#X connect 24 0 19 0;
+#X connect 25 0 21 0;
+#X connect 27 0 20 0;
+#X connect 33 0 22 0;
+#X connect 35 0 23 0;
+#X connect 36 0 14 0;
+#X connect 37 0 38 0;
+#X connect 41 0 13 0;
+#X connect 41 1 36 0;
+#X connect 42 0 25 0;
+#X connect 42 0 20 0;
+#X connect 42 0 26 0;
+#X connect 42 1 21 0;
+#X connect 42 1 27 0;
+#X connect 42 1 28 0;
+#X connect 43 0 23 1;
+#X connect 43 0 22 1;
+#X connect 44 0 46 0;
+#X connect 44 0 47 0;
+#X connect 45 0 43 0;
+#X connect 46 0 45 0;
+#X connect 47 0 45 0;
+#X connect 48 0 44 0;
+#X coords 0 -1 1 1 120 300 2 100 100;
